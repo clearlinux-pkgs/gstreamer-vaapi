@@ -1,0 +1,6 @@
+# This file contains pkgconfig build requirements that get picked up
+# but are undesirable. One entry per line, no whitespace.
+wayland-client
+libva-wayland
+gstreamer-gl-$GST_API_VERSION
+gstreamer-codecparsers-$GST_API_VERSION
