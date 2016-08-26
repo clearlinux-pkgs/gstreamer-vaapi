@@ -4,7 +4,7 @@
 #
 Name     : gstreamer-vaapi
 Version  : 1.8.2
-Release  : 2
+Release  : 3
 URL      : https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.8.2.tar.xz
 Source0  : https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.8.2.tar.xz
 Summary  : No detailed summary available
@@ -64,7 +64,7 @@ lib components for the gstreamer-vaapi package.
 
 %build
 export LANG=C
-%configure --disable-static --disable-wayland
+%configure --disable-static
 make V=1  %{?_smp_mflags}
 
 %check

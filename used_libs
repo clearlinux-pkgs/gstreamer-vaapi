@@ -20,5 +20,7 @@ libm.so.6
 libpthread.so.0
 libudev.so.1
 libva-drm.so.1
+libva-wayland.so.1
 libva-x11.so.1
 libva.so.1
+libwayland-client.so.0
