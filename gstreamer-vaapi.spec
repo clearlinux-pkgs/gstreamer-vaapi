@@ -4,7 +4,7 @@
 #
 Name     : gstreamer-vaapi
 Version  : 1.8.2
-Release  : 1
+Release  : 2
 URL      : https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.8.2.tar.xz
 Source0  : https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.8.2.tar.xz
 Summary  : No detailed summary available
@@ -28,7 +28,9 @@ BuildRequires : pkgconfig(libdrm)
 BuildRequires : pkgconfig(libudev)
 BuildRequires : pkgconfig(libva)
 BuildRequires : pkgconfig(libva-drm)
+BuildRequires : pkgconfig(libva-wayland)
 BuildRequires : pkgconfig(libva-x11)
+BuildRequires : pkgconfig(wayland-client)
 BuildRequires : pkgconfig(x11)
 BuildRequires : pkgconfig(xrandr)
 BuildRequires : pkgconfig(xrender)
