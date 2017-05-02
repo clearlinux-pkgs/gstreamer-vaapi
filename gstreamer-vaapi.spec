@@ -4,7 +4,7 @@
 #
 Name     : gstreamer-vaapi
 Version  : 1.8.3
-Release  : 4
+Release  : 5
 URL      : https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.8.3.tar.xz
 Source0  : https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.8.3.tar.xz
 Summary  : No detailed summary available
