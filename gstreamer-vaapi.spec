@@ -6,7 +6,7 @@
 #
 Name     : gstreamer-vaapi
 Version  : 1.12.3
-Release  : 10
+Release  : 11
 URL      : https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.12.3.tar.xz
 Source0  : https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.12.3.tar.xz
 Source99 : https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.12.3.tar.xz.asc
@@ -15,7 +15,10 @@ Group    : Development/Tools
 License  : LGPL-2.1
 Requires: gstreamer-vaapi-lib
 Requires: gstreamer-vaapi-doc
+BuildRequires : automake
+BuildRequires : automake-dev
 BuildRequires : docbook-xml
+BuildRequires : gettext-bin
 BuildRequires : gobject-introspection
 BuildRequires : gobject-introspection-dev
 BuildRequires : gst-plugins-bad-dev
@@ -23,9 +26,13 @@ BuildRequires : gst-plugins-base-dev
 BuildRequires : gstreamer-dev
 BuildRequires : gtk-doc
 BuildRequires : gtk-doc-dev
+BuildRequires : libtool
+BuildRequires : libtool-dev
 BuildRequires : libxslt-bin
+BuildRequires : m4
 BuildRequires : meson
 BuildRequires : ninja
+BuildRequires : pkg-config-dev
 BuildRequires : pkgconfig(egl)
 BuildRequires : pkgconfig(gl)
 BuildRequires : pkgconfig(glesv2)
@@ -40,6 +47,7 @@ BuildRequires : pkgconfig(x11)
 BuildRequires : pkgconfig(xrandr)
 BuildRequires : pkgconfig(xrender)
 BuildRequires : python3
+Patch1: build.patch
 
 %description
 gstreamer-vaapi
@@ -67,15 +75,16 @@ lib components for the gstreamer-vaapi package.
 
 %prep
 %setup -q -n gstreamer-vaapi-1.12.3
+%patch1 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1505777681
-%configure --disable-static
-make V=1  %{?_smp_mflags}
+export SOURCE_DATE_EPOCH=1511277131
+%reconfigure --disable-static
+make  %{?_smp_mflags}
 
 %check
 export LANG=C
@@ -85,7 +94,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1505777681
+export SOURCE_DATE_EPOCH=1511277131
 rm -rf %{buildroot}
 %make_install
 
