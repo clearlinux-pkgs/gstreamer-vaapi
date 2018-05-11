@@ -6,7 +6,7 @@
 #
 Name     : gstreamer-vaapi
 Version  : 1.14.0
-Release  : 15
+Release  : 16
 URL      : https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.14.0.tar.xz
 Source0  : https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.14.0.tar.xz
 Source99 : https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.14.0.tar.xz.asc
@@ -74,7 +74,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1522524920
+export SOURCE_DATE_EPOCH=1526052561
 %configure --disable-static
 make  %{?_smp_mflags}
 
@@ -86,7 +86,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1522524920
+export SOURCE_DATE_EPOCH=1526052561
 rm -rf %{buildroot}
 %make_install
 
