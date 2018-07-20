@@ -5,15 +5,17 @@
 # Source0 file verified with key 0x5D2EEE6F6F349D7C (tim@centricular.com)
 #
 Name     : gstreamer-vaapi
-Version  : 1.14.1
-Release  : 18
-URL      : https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.14.1.tar.xz
-Source0  : https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.14.1.tar.xz
-Source99 : https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.14.1.tar.xz.asc
+Version  : 1.14.2
+Release  : 19
+URL      : https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.14.2.tar.xz
+Source0  : https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.14.2.tar.xz
+Source99 : https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.14.2.tar.xz.asc
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : LGPL-2.1
 Requires: gstreamer-vaapi-lib
+Requires: gstreamer-vaapi-license
+BuildRequires : buildreq-meson
 BuildRequires : docbook-xml
 BuildRequires : gobject-introspection
 BuildRequires : gobject-introspection-dev
@@ -23,8 +25,6 @@ BuildRequires : gstreamer-dev
 BuildRequires : gtk-doc
 BuildRequires : gtk-doc-dev
 BuildRequires : libxslt-bin
-BuildRequires : meson
-BuildRequires : ninja
 BuildRequires : pkgconfig(egl)
 BuildRequires : pkgconfig(gl)
 BuildRequires : pkgconfig(glesv2)
@@ -39,7 +39,6 @@ BuildRequires : pkgconfig(wayland-client)
 BuildRequires : pkgconfig(x11)
 BuildRequires : pkgconfig(xrandr)
 BuildRequires : pkgconfig(xrender)
-BuildRequires : python3
 
 %description
 gstreamer-vaapi
@@ -60,20 +59,29 @@ doc components for the gstreamer-vaapi package.
 %package lib
 Summary: lib components for the gstreamer-vaapi package.
 Group: Libraries
+Requires: gstreamer-vaapi-license
 
 %description lib
 lib components for the gstreamer-vaapi package.
 
 
+%package license
+Summary: license components for the gstreamer-vaapi package.
+Group: Default
+
+%description license
+license components for the gstreamer-vaapi package.
+
+
 %prep
-%setup -q -n gstreamer-vaapi-1.14.1
+%setup -q -n gstreamer-vaapi-1.14.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1526743504
+export SOURCE_DATE_EPOCH=1532099132
 %configure --disable-static
 make  %{?_smp_mflags}
 
@@ -85,15 +93,17 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1526743504
+export SOURCE_DATE_EPOCH=1532099132
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/doc/gstreamer-vaapi
+cp COPYING.LIB %{buildroot}/usr/share/doc/gstreamer-vaapi/COPYING.LIB
 %make_install
 
 %files
 %defattr(-,root,root,-)
 
 %files doc
-%defattr(-,root,root,-)
+%defattr(0644,root,root,0755)
 /usr/share/gtk-doc/html/gstreamer-vaapi-plugins-1.0/api-index-full.html
 /usr/share/gtk-doc/html/gstreamer-vaapi-plugins-1.0/ch01.html
 /usr/share/gtk-doc/html/gstreamer-vaapi-plugins-1.0/ch02.html
@@ -133,3 +143,7 @@ rm -rf %{buildroot}
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/gstreamer-1.0/libgstvaapi.so
+
+%files license
+%defattr(-,root,root,-)
+/usr/share/doc/gstreamer-vaapi/COPYING.LIB
