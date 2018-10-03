@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x5D2EEE6F6F349D7C (tim@centricular.com)
 #
 Name     : gstreamer-vaapi
-Version  : 1.14.3
-Release  : 20
-URL      : https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.14.3.tar.xz
-Source0  : https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.14.3.tar.xz
-Source99 : https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.14.3.tar.xz.asc
+Version  : 1.14.4
+Release  : 21
+URL      : https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.14.4.tar.xz
+Source0  : https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.14.4.tar.xz
+Source99 : https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.14.4.tar.xz.asc
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : LGPL-2.1
@@ -59,7 +59,7 @@ doc components for the gstreamer-vaapi package.
 %package lib
 Summary: lib components for the gstreamer-vaapi package.
 Group: Libraries
-Requires: gstreamer-vaapi-license
+Requires: gstreamer-vaapi-license = %{version}-%{release}
 
 %description lib
 lib components for the gstreamer-vaapi package.
@@ -74,14 +74,14 @@ license components for the gstreamer-vaapi package.
 
 
 %prep
-%setup -q -n gstreamer-vaapi-1.14.3
+%setup -q -n gstreamer-vaapi-1.14.4
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1537259348
+export SOURCE_DATE_EPOCH=1538588092
 %configure --disable-static
 make  %{?_smp_mflags}
 
@@ -93,7 +93,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1537259348
+export SOURCE_DATE_EPOCH=1538588092
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/gstreamer-vaapi
 cp COPYING.LIB %{buildroot}/usr/share/doc/gstreamer-vaapi/COPYING.LIB
@@ -145,5 +145,5 @@ cp COPYING.LIB %{buildroot}/usr/share/doc/gstreamer-vaapi/COPYING.LIB
 /usr/lib64/gstreamer-1.0/libgstvaapi.so
 
 %files license
-%defattr(-,root,root,-)
+%defattr(0644,root,root,0755)
 /usr/share/doc/gstreamer-vaapi/COPYING.LIB
