@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x5D2EEE6F6F349D7C (tim@centricular.com)
 #
 Name     : gstreamer-vaapi
-Version  : 1.16.1
-Release  : 31
-URL      : https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.16.1.tar.xz
-Source0  : https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.16.1.tar.xz
-Source1 : https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.16.1.tar.xz.asc
+Version  : 1.16.2
+Release  : 32
+URL      : https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.16.2.tar.xz
+Source0  : https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.16.2.tar.xz
+Source1  : https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.16.2.tar.xz.asc
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : LGPL-2.1
@@ -74,15 +74,15 @@ license components for the gstreamer-vaapi package.
 
 
 %prep
-%setup -q -n gstreamer-vaapi-1.16.1
-cd %{_builddir}/gstreamer-vaapi-1.16.1
+%setup -q -n gstreamer-vaapi-1.16.2
+cd %{_builddir}/gstreamer-vaapi-1.16.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1572633870
+export SOURCE_DATE_EPOCH=1578968612
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -102,10 +102,10 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1572633870
+export SOURCE_DATE_EPOCH=1578968612
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/gstreamer-vaapi
-cp %{_builddir}/gstreamer-vaapi-1.16.1/COPYING.LIB %{buildroot}/usr/share/package-licenses/gstreamer-vaapi/01a6b4bf79aca9b556822601186afab86e8c4fbf
+cp %{_builddir}/gstreamer-vaapi-1.16.2/COPYING.LIB %{buildroot}/usr/share/package-licenses/gstreamer-vaapi/01a6b4bf79aca9b556822601186afab86e8c4fbf
 %make_install
 
 %files
