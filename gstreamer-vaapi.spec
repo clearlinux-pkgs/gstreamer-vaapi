@@ -6,7 +6,7 @@
 #
 Name     : gstreamer-vaapi
 Version  : 1.16.2
-Release  : 35
+Release  : 36
 URL      : https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.16.2.tar.xz
 Source0  : https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.16.2.tar.xz
 Source1  : https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.16.2.tar.xz.asc
