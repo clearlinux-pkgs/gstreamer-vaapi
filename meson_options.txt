@@ -7,4 +7,9 @@ option('with_egl', type : 'combo', choices : ['yes', 'no', 'auto'], value : 'aut
 
 # Common feature options
 option('examples', type : 'feature', value : 'auto', yield : true)
-option('gtk_doc', type : 'feature', value : 'auto', yield : true, description : 'Build API documentation with gtk-doc')
+option('tests', type : 'feature', value : 'auto', yield : true)
+option('doc', type : 'feature', value : 'auto', yield: true,
+       description: 'Enable documentation.')
+option('package-origin', type : 'string',
+       value : 'https://gitlab.freedesktop.org/gstreamer/gstreamer-vaapi/issues',
+       yield : true, description : 'package origin URL to use in plugins')

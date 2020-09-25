@@ -1,0 +1,7 @@
+1.18.0
+libva-dev
+pkgconfig(gstreamer-codecparsers-1.0)
+pkgconfig(gtk+-3.0)
+pkgconfig(libudev)
+pkgconfig(libva)
+pkgconfig(wayland-protocols)
