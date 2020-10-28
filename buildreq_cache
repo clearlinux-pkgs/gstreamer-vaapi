@@ -1,6 +1,5 @@
-1.18.0
+1.18.1
 libva-dev
-pkgconfig(gstreamer-codecparsers-1.0)
 pkgconfig(gtk+-3.0)
 pkgconfig(libudev)
 pkgconfig(libva)
