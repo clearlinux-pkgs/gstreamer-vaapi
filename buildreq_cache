@@ -1,4 +1,4 @@
-1.18.2
+1.18.3
 libva-dev
 pkgconfig(gtk+-3.0)
 pkgconfig(libudev)
