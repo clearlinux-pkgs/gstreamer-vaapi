@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x5D2EEE6F6F349D7C (tim@centricular.com)
 #
 Name     : gstreamer-vaapi
-Version  : 1.18.5
-Release  : 42
-URL      : https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.18.5.tar.xz
-Source0  : https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.18.5.tar.xz
-Source1  : https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.18.5.tar.xz.asc
+Version  : 1.20.0
+Release  : 43
+URL      : https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.20.0.tar.xz
+Source0  : https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.20.0.tar.xz
+Source1  : https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.20.0.tar.xz.asc
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : LGPL-2.1
@@ -20,10 +20,7 @@ BuildRequires : gobject-introspection-dev
 BuildRequires : gst-plugins-bad-dev
 BuildRequires : gst-plugins-base-dev
 BuildRequires : gstreamer-dev
-BuildRequires : libva-dev
 BuildRequires : pkgconfig(gtk+-3.0)
-BuildRequires : pkgconfig(libudev)
-BuildRequires : pkgconfig(libva)
 BuildRequires : pkgconfig(wayland-protocols)
 
 %description
@@ -52,15 +49,15 @@ license components for the gstreamer-vaapi package.
 
 
 %prep
-%setup -q -n gstreamer-vaapi-1.18.5
-cd %{_builddir}/gstreamer-vaapi-1.18.5
+%setup -q -n gstreamer-vaapi-1.20.0
+cd %{_builddir}/gstreamer-vaapi-1.20.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1631205259
+export SOURCE_DATE_EPOCH=1643995265
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -69,7 +66,7 @@ export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=auto "
 export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
 export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
-CFLAGS="$CFLAGS" CXXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS" meson --libdir=lib64 --prefix=/usr --buildtype=plain -Dgtk_doc=enabled \
+CFLAGS="$CFLAGS" CXXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS" meson --libdir=lib64 --prefix=/usr --buildtype=plain -Ddoc=disabled \
 -Dtests=disabled  builddir
 ninja -v -C builddir
 
@@ -78,11 +75,11 @@ export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-meson test -C builddir
+meson test -C builddir --print-errorlogs
 
 %install
 mkdir -p %{buildroot}/usr/share/package-licenses/gstreamer-vaapi
-cp %{_builddir}/gstreamer-vaapi-1.18.5/COPYING.LIB %{buildroot}/usr/share/package-licenses/gstreamer-vaapi/01a6b4bf79aca9b556822601186afab86e8c4fbf
+cp %{_builddir}/gstreamer-vaapi-1.20.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/gstreamer-vaapi/01a6b4bf79aca9b556822601186afab86e8c4fbf
 DESTDIR=%{buildroot} ninja -C builddir install
 
 %files
