@@ -6,7 +6,7 @@
 #
 Name     : gstreamer-vaapi
 Version  : 1.20.1
-Release  : 44
+Release  : 45
 URL      : https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.20.1.tar.xz
 Source0  : https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.20.1.tar.xz
 Source1  : https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.20.1.tar.xz.asc
@@ -20,7 +20,9 @@ BuildRequires : gobject-introspection-dev
 BuildRequires : gst-plugins-bad-dev
 BuildRequires : gst-plugins-base-dev
 BuildRequires : gstreamer-dev
+BuildRequires : libva-dev
 BuildRequires : pkgconfig(gtk+-3.0)
+BuildRequires : pkgconfig(libva)
 BuildRequires : pkgconfig(wayland-protocols)
 
 %description
@@ -57,7 +59,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1647286201
+export SOURCE_DATE_EPOCH=1648270741
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib

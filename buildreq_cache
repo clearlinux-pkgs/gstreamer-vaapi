@@ -1,3 +1,5 @@
 1.20.1
+libva-dev
 pkgconfig(gtk+-3.0)
+pkgconfig(libva)
 pkgconfig(wayland-protocols)
