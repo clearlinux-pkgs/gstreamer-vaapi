@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x5D2EEE6F6F349D7C (tim@centricular.com)
 #
 Name     : gstreamer-vaapi
-Version  : 1.20.3
-Release  : 47
-URL      : https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.20.3.tar.xz
-Source0  : https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.20.3.tar.xz
-Source1  : https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.20.3.tar.xz.asc
+Version  : 1.20.4
+Release  : 48
+URL      : https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.20.4.tar.xz
+Source0  : https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.20.4.tar.xz
+Source1  : https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.20.4.tar.xz.asc
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : LGPL-2.1
@@ -51,15 +51,15 @@ license components for the gstreamer-vaapi package.
 
 
 %prep
-%setup -q -n gstreamer-vaapi-1.20.3
-cd %{_builddir}/gstreamer-vaapi-1.20.3
+%setup -q -n gstreamer-vaapi-1.20.4
+cd %{_builddir}/gstreamer-vaapi-1.20.4
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1655391803
+export SOURCE_DATE_EPOCH=1665682290
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -81,7 +81,7 @@ meson test -C builddir --print-errorlogs
 
 %install
 mkdir -p %{buildroot}/usr/share/package-licenses/gstreamer-vaapi
-cp %{_builddir}/gstreamer-vaapi-1.20.3/COPYING.LIB %{buildroot}/usr/share/package-licenses/gstreamer-vaapi/01a6b4bf79aca9b556822601186afab86e8c4fbf
+cp %{_builddir}/gstreamer-vaapi-%{version}/COPYING.LIB %{buildroot}/usr/share/package-licenses/gstreamer-vaapi/01a6b4bf79aca9b556822601186afab86e8c4fbf || :
 DESTDIR=%{buildroot} ninja -C builddir install
 
 %files
