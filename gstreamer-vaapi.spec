@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x5D2EEE6F6F349D7C (tim@centricular.com)
 #
 Name     : gstreamer-vaapi
-Version  : 1.22.0
-Release  : 50
-URL      : https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.22.0.tar.xz
-Source0  : https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.22.0.tar.xz
-Source1  : https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.22.0.tar.xz.asc
+Version  : 1.22.1
+Release  : 51
+URL      : https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.22.1.tar.xz
+Source0  : https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.22.1.tar.xz
+Source1  : https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.22.1.tar.xz.asc
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : LGPL-2.1
@@ -20,7 +20,6 @@ BuildRequires : gobject-introspection-dev
 BuildRequires : gst-plugins-bad-dev
 BuildRequires : gst-plugins-base-dev
 BuildRequires : gstreamer-dev
-BuildRequires : pkgconfig(gstreamer-codecparsers-1.0)
 BuildRequires : pkgconfig(gtk+-3.0)
 # Suppress stripping binaries
 %define __strip /bin/true
@@ -52,15 +51,15 @@ license components for the gstreamer-vaapi package.
 
 
 %prep
-%setup -q -n gstreamer-vaapi-1.22.0
-cd %{_builddir}/gstreamer-vaapi-1.22.0
+%setup -q -n gstreamer-vaapi-1.22.1
+cd %{_builddir}/gstreamer-vaapi-1.22.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1674583329
+export SOURCE_DATE_EPOCH=1677973690
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -87,7 +86,6 @@ DESTDIR=%{buildroot} ninja -C builddir install
 
 %files
 %defattr(-,root,root,-)
-/usr/lib64/gstreamer-1.0/pkgconfig/gstvaapi.pc
 
 %files lib
 %defattr(-,root,root,-)
